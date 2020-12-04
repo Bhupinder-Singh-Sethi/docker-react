@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+  
+before_install:
+  - docker build -t bhupinder_singh_amritsar/docker-react -f Dockerfile.dev --network=host .
+  
+script:
+  - docker run -t bhupinder_singh_amritsar/docker-react npm run test -- --coverage
